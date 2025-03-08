@@ -1,0 +1,12 @@
+services:
+  hexo:
+    build: .
+    container_name: hexo
+    restart: unless-stopped
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./:/hexo:delegated
+    entrypoint: [ "hexo", "server", "--ip", "0.0.0.0" ]
+    stdin_open: true
+    tty: true

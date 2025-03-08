@@ -1,5 +1,11 @@
 ---
 title: Hello World
+tags:
+- Foo
+- Bar
+categories: 
+- HOO
+- DOO
 ---
 Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 
@@ -9,6 +15,18 @@ Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [docume
 
 ``` bash
 $ hexo new "My New Post"
+```
+
+
+```go
+func main() {
+    x := 1
+    arr := []int{1,2,3}
+
+    for i, v := range arr { 
+        fmt.Printf("2**%d = %d\n", i, v) 
+    }
+}
 ```
 
 More info: [Writing](https://hexo.io/docs/writing.html)

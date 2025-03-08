@@ -104,4 +104,4 @@ theme: cactus
 deploy:
   type: git
   repo: https://github.com/abdulrahman19/hexo-notes.git
-  branch: master
+  branch: main

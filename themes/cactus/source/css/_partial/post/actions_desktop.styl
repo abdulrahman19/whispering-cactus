@@ -19,6 +19,7 @@
 
   ol
     list-style-type: none
+    padding-left: 10px
 
   ul
     display: inline-block
@@ -73,6 +74,7 @@
     font-weight: 200
     font-style: normal
     font-size: .8rem
+    float: inline-end;
 
     ul
       line-height: 15px
@@ -124,7 +126,7 @@
     overflow: auto
     margin-top: 1rem
     padding-right: 2rem
-    max-width: 20em
+    max-width: 30em // 20
     max-height: calc(95vh - 7rem)
     text-align: right
 
@@ -147,8 +149,8 @@
       font-size: .7rem
 
     .toc-level-4
-      color: darken($color-meta, 20%)
-      font-size: .4rem
+      color: lighten($color-meta, 40%) // darken($color-meta, 20%)
+      font-size: .6rem // .4
 
     .toc-level-5
       display: none

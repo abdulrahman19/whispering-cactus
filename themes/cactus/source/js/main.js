@@ -31,10 +31,8 @@ $(document).ready(function () {
 
         /**
          * Display the menu on hi-res laptops and desktops.
-         * 
-         * old value was 1440, changed
          */
-        if ($(document).width() >= 1300) {
+        if ($(document).width() >= 1440) {
             menu.show();
             menuIcon.addClass("active");
         }

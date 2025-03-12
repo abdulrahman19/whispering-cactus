@@ -63,8 +63,11 @@ article
       quotes: "\201C" "\201D" "\2018" "\2019"
       font-weight: bold
 
-      p
+      p:first-child
         margin: 0
+      
+      p:not(:first-child)
+        margin: 2rem 0px 0px 0px;
 
       &:before
         margin-right: .25em

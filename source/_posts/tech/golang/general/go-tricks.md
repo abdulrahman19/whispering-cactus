@@ -1,5 +1,5 @@
 ---
-title: Go Tricks
+title: Go — Tips And Tricks
 date: 2025-03-09 15:53:02
 categories: [Tech, Golang]
 tags: [golang]
@@ -157,10 +157,3 @@ while r.has_data() {
 close(r)
 ```
 - If the `pointer` variable is returned from a function, the memory that the pointer points to will no longer be valid when the function exits. When the compiler determines that the data can’t be stored on the stack, we say that the data the pointer points to `escapes` the stack, and the compiler stores the data on the heap.
-
-## Accept Interfaces, Return Structs
-The primary reason your functions should return concrete types is they make it easier to gradually update a function’s return values in new versions of your code. When a concrete type is returned by a function, new methods and fields can be added without breaking existing code that calls the function, because the new fields and methods are ignored. The same is not true for an interface. Adding a new method to an interface means that all existing implementations of that interface must be updated, or your code breaks. 
-
-In some rare situations, the least bad option is to have your functions return interfaces. For example, the `database/sql/driver` package in the standard library defines a set of interfaces that define what a database driver must provide. It is the responsibility of the database driver author to provide concrete implementations of these interfaces, so almost all methods on all interfaces defined in `database/sql/ driver` return interfaces.
-
-Errors are an exception to this rule. Go functions and methods can declare a return parameter of the error `interface` type.

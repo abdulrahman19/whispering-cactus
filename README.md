@@ -1,4 +1,4 @@
-# Hexo Notes
+# Whispering Cactus
 
 Organizing my notes into a structured blog format for better readability and easy reference.
 

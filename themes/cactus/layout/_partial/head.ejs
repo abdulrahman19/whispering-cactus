@@ -55,7 +55,7 @@
     <!-- styles -->
     <%- css('css/style') %>
     <!-- persian styles -->
-    <% if (theme.direction && theme.direction === 'rtl') { %>
+    <% if ((theme.direction && theme.direction === 'rtl') || page_direction() === 'rtl') { %>
       <%- css('css/rtl') %>
     <% } %>
     <!-- rss -->

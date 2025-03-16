@@ -78,9 +78,13 @@ article
         line-height: .1em
 
       footer
-        margin: line-height 0
         color: $color-meta
         font-size: 12px
+        font-weight: 100;
+
+        &:before
+          display: table
+          content: "———"
 
         a
           background-image: linear-gradient(transparent, transparent 5px, $color-meta 5px, $color-meta)
@@ -115,6 +119,55 @@ article
       color: $color-meta
       text-align: center
       font-size: .9em
+  
+  .alert
+    padding: 0px 1rem;
+    flex-direction: column;
+    border-left: 0.3em solid;
+    margin: 1em 0
+
+    p
+      margin: 0.5em 0px
+
+    &.is-warning
+      border-color: #9d6c02;
+
+      .alert-title
+        color: #9d6c02;
+        font-weight: bold;
+        font-size: 16px;
+
+    &.is-success
+      border-color: #178230;
+
+      .alert-title
+        color: #178230;
+        font-weight: bold;
+        font-size: 16px;
+
+    &.is-info
+      border-color: #0b6ade;
+
+      .alert-title
+        color: #0b6ade;
+        font-weight: bold;
+        font-size: 16px;
+
+    &.is-important
+      border-color: #7f4fdd;
+
+      .alert-title
+        color: #7f4fdd;
+        font-weight: bold;
+        font-size: 16px;
+    
+    &.is-caution
+      border-color: #d1222b;
+
+      .alert-title
+        color: #d1222b;
+        font-weight: bold;
+        font-size: 16px;
 
 .posttitle
   text-transform: none

@@ -7,7 +7,7 @@ tags: [golang, learning-go-book]
 
 > As I’ve covered several times, package-level state should be effectively immutable. Anytime your logic depends on values that are configured at startup or changed while your program is running, those values should be stored in a struct, and that logic should be implemented as a method. If your logic depends only on the input parameters, it should be a function.
 >
-> – Learning Go (2nd edition), Chapter 7, "Functions Versus Methods"
+> <footer>Learning Go (2nd edition) – Chapter 7, "Functions Versus Methods"</footer>
 
 This paragraph emphasizes three key ideas:
 1. Package-Level State Should Be **Immutable**

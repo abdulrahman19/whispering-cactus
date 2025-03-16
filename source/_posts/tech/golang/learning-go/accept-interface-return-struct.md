@@ -7,7 +7,7 @@ tags: [golang, learning-go-book]
 
 > The primary reason your functions should return concrete types is they make it easier to gradually update a function’s return values in new versions of your code. When a concrete type is returned by a function, new methods and fields can be added without breaking existing code that calls the function, because the new fields and methods are ignored. The same is not true for an interface. Adding a new method to an interface means that all existing implementations of that interface must be updated, or your code breaks.
 >
-> – Learning Go (2nd edition), Chapter 7, "Accept Interfaces, Return Structs"
+> <footer>Learning Go (2nd edition) – Chapter 7, "Accept Interfaces, Return Structs"</footer>
 
 When a function returns a `concrete type`, it provides direct access to that type's methods and fields. This makes it easier to extend or modify the type in the future.
 When a function returns an `interface`, changing the interface (e.g., adding a new method) forces all implementations of that interface to update, which can break existing code.

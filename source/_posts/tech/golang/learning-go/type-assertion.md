@@ -82,3 +82,8 @@ func main() {
 ```bash output
 Welcome!
 ```
+
+## Type Assertion vs Type Conversion
+> A type assertion is very different from a type conversion. Conversions change a value to a new type, while assertions reveal the type of the value stored in the interface. Type conversions can be applied to both concrete types and interfaces. Type assertions can be applied only to interface types. All type assertions are checked at runtime, so they can fail at runtime with a panic if you don’t use the comma ok idiom. Most type conversions are checked at compile time, so if they are invalid, your code won’t compile. (Type conversions between slices and array pointers can fail at runtime and don’t support the comma ok idiom, so be careful when using them!)
+>
+> <footer>Learning Go (2nd edition) — Chapter 7, "Type Assertions and Type Switches"</footer>

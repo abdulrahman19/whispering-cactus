@@ -41,7 +41,7 @@ Extracted: Hello, Go!
 > If the `type assertion` fails, the second value (`ok`) will be `false`. Always check the `ok` value before using the extracted value. Otherwise, it will **panic**.
 
 ## Asserting from One Interface to Another
-A concrete type can implement multiple interfaces. A type assertion can check if it implements another interface.
+A concrete type can implement multiple interfaces. Can be a primary interface and an {% post_link tech/golang/learning-go/type-assertion-decorator-pattern "optional interface" %}. A type assertion can check if it implements another interface.
 ```go main.go
 package main
 

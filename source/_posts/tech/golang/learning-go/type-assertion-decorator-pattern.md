@@ -1,5 +1,5 @@
 ---
-title: Go — Decorator pattern Technique Drawback With Type Assertion
+title: Go — Decorator Pattern Technique Drawback With Type Assertion
 date: 2025-03-16 18:07:38 
 categories: [Tech, Golang]
 tags: [golang, learning-go-book]

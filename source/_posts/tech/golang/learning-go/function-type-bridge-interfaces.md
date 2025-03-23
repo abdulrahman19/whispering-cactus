@@ -1,5 +1,5 @@
 ---
-title: Go - Function Types Are a Bridge to Interfaces
+title: Go — Function Types Are a Bridge to Interfaces
 date: 2025-03-20 22:41:28 
 categories: [Tech, Golang]
 tags: [golang, learning-go-book]

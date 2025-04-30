@@ -24,7 +24,7 @@ func main() {
     fmt.Println(compare([]int{1, 2}, []int{1, 2}))
 }
 ```
-```output
+```bash output
 true
 true
 error: invalid operation: a == b (operator == not defined on []int)
@@ -50,7 +50,7 @@ func main() {
     fmt.Println(compare([]int{1, 2}, []int{1, 2}))
 }
 ```
-```output
+```bash output
 invalid operation: a == b (incomparable types in type set)
 ```
 
@@ -81,7 +81,7 @@ func main() {
     fmt.Println(compare([]int{1, 2}, []int{1, 2}))
 }
 ```
-```output
+```bash output
 true
 true
 []int does not satisfy comparable

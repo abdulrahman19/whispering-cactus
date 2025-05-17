@@ -14,38 +14,38 @@ tags: [golang, learning-go-book]
 Let's see how both buffered and unbuffered channels work in practice.
 
 ## Unbuffered Channels
-Think of a channel as a handoff lane at a relay race: <br>
-🏃‍♂️ → (message) → 🏃‍♀️ <br>
+Think of a unbuffered channel as a handoff lane at a relay race:
+🏃‍♂️ → (message) → 🏃‍♀️
 The baton can only be passed if both runners are there at the **same time**.
 
 ```go main.go
 package main
 
 import (
-	"fmt"
-	"time"
+    "fmt"
+    "time"
 )
 
 func main() {
-	messages := make(chan string)
+    messages := make(chan string)
 
-	go func() {
-		fmt.Println("Sending message...")
-		messages <- "hello" // This will block until a receiver is ready
-		fmt.Println("Message sent!")
-	}()
+    go func() {
+        fmt.Println("Sending message...")
+        messages <- "hello" // This will block until a receiver is ready
+        fmt.Println("Message sent!")
+    }()
 
-	// Add a small delay to illustrate blocking if the receiver isn't ready immediately
-	time.Sleep(1 * time.Second)
+    // Add a small delay to illustrate blocking if the receiver isn't ready immediately
+    time.Sleep(1 * time.Second)
 
-	fmt.Println("Waiting to receive message...")
-	msg := <-messages // This will block until a sender is ready
-	fmt.Println("Received message:", msg)
+    fmt.Println("Waiting to receive message...")
+    msg := <-messages // This will block until a sender is ready
+    fmt.Println("Received message:", msg)
 
     // If you uncomment the following lines, the second receiver would deadlock
-	// because there's no second sender send a message.
+    // because there's no second sender send a message.
     // msg2 := <-messages
-	// fmt.Println("Received message 2:", msg2)
+    // fmt.Println("Received message 2:", msg2)
 }
 ```
 ```bash output
@@ -114,7 +114,7 @@ import (
 )
 
 func main() {
-    messages := make(chan string, 1) // Create a buffered channel with a capacity of 2
+    messages := make(chan string, 1) // Create a buffered channel with a capacity of 1
 
     go func() { // first goroutine
         fmt.Println("Sending message 1...")
@@ -161,31 +161,31 @@ Let's see this examle first:
 package main
 
 import (
-	"fmt"
-	"time"
+    "fmt"
+    "time"
 )
 
 func main() {
-	messages := make(chan string)
-
-	go func() {
-		fmt.Println("Sending message...")
-		messages <- "hello" // This will block until a receiver is ready
-		fmt.Println("Message sent!")
-	}()
-
-	// Add a small delay to illustrate blocking if the receiver isn't ready immediately
-	time.Sleep(1 * time.Second)
-
-	fmt.Println("Waiting to receive message...")
-	msg := <-messages // This will block until a sender is ready
-	fmt.Println("Received message:", msg)
+    messages := make(chan string)
 
     go func() {
-		fmt.Println("Sending message 2...")
-		messages <- "world!" // what will happen here?!
-		fmt.Println("Message 2 sent!")
-	}()
+        fmt.Println("Sending message...")
+        messages <- "hello" // This will block until a receiver is ready
+        fmt.Println("Message sent!")
+    }()
+
+    // Add a small delay to illustrate blocking if the receiver isn't ready immediately
+    time.Sleep(1 * time.Second)
+
+    fmt.Println("Waiting to receive message...")
+    msg := <-messages // This will block until a sender is ready
+    fmt.Println("Received message:", msg)
+
+    go func() {
+        fmt.Println("Sending message 2...")
+        messages <- "world!" // what will happen here?!
+        fmt.Println("Message 2 sent!")
+    }()
 
     time.Sleep(1 * time.Second)
 }
@@ -198,20 +198,16 @@ Sending message 2...
 Message sent!
 ```
 
-ok, if you looked at the output carefully you may wonder why the `Message 2 sent!` is not printed!
-
+ok, if you looked at the output carefully you may wonder why the `Message 2 sent!` is not printed?
 This is actually a good question and the answer will shock you!
 
 The second `goroutine` is blocked because there is no receiver ready to receive the message. Remember, this is an unbuffered channel.
-
 ok, but is this a `deadlock`? 🤔
-
 The answer is **YES!!!**.
 
 You may wonder one more time why the program is not showing us this `deadlock` error?!
 
 The reason is that `deadlock` happens in onther/sub `goroutine` that is not the main `goroutine`, and any **not main** `goroutine` fails silently since the main `goroutine` is not aware of it. 🤯
-
 In a short words, the second `goroutine` is blocked and it has error but since the main `goroutine` is not aware of it, the program will not show us any error and it will exit normally.
 
 My advice here is to always make sure that each `goroutine` has a receiver ready to receive the message, otherwise you will end up with a `deadlock` and the program will exit silently without any error.
